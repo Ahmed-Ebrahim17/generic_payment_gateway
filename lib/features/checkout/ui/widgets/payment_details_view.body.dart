@@ -1,6 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:genric_payment_gateway/core/helpers/extensions.dart';
+import 'package:genric_payment_gateway/core/routing/routes.dart';
 import 'package:genric_payment_gateway/features/checkout/ui/widgets/pay_button.dart';
 import 'package:genric_payment_gateway/features/checkout/ui/widgets/payment_card_form.dart';
 import 'package:genric_payment_gateway/features/checkout/ui/widgets/select_payment_method.dart';
@@ -31,7 +31,7 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
                 onpressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    log("Payment");
+                    context.pushNamed(Routes.transactionResultScreen);
                   } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;
